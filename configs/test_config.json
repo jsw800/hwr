@@ -1,0 +1,17 @@
+{
+    "training_set_path": "../train.csv",
+    "validation_set_path": "../val.csv",
+    "image_root_directory": "../1930_images",
+    "model_save_path": "models/test_model.pt",
+	"error_log": "errors/test_log.txt",
+	"incorrect_save_path": "errors/test_incorrect.txt",
+	"error_rates": "rates/test_error_rates.csv",
+    "network": {
+        "input_height": 60,
+        "cnn_out_size": 1024,
+        "learning_rate": 1e-4
+    },
+    "character_set_path": "char_set.json",
+    "categories": [6, 11, 16, 21, 26, 31, 36, 41],
+    "maxwidths": [400, 400, 400, 400, 400, 400, 400, 400]
+}
