@@ -1,1 +1,0 @@
-Total: 59996, Incorrect: 24277, Accuracy: 0.59535635709

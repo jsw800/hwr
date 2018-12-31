@@ -1,8 +1,0 @@
-index: 5, label: Vandervil, Les E, prediction: VandoneuilLesE
-index: 7, label: -, Leon, prediction: -Zeon
-index: 9, label: Bothe, Helmuth, prediction: BotheHelmeth
-index: 10, label: Wiegand, Mary, prediction: WirgandMary
-index: 12, label: Vincent, Roger, prediction: VincentRogor
-index: 16, label: Prince, Fern, prediction: PirceJem
-index: 19, label: -, Joane, prediction: -Irane
-index: 22, label: Growsley, Kenneth, prediction: GourleyKenneth
