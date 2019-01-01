@@ -1,3 +1,6 @@
 warp-ctc
 .idea
 *.jpg
+*.pyc
+data
+output

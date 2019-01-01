@@ -19,11 +19,14 @@ class HwDataset(Dataset):
         retval = []
         segs = self.segmentation[item]
         # cache currently open image to save time opening
-        if join(self.image_folder, segs[0]) != self.current_image_name:
+        if join(self.image_folder, segs[0]) + '.jpg' != self.current_image_name:
             self.current_image_name = join(self.image_folder, segs[0]) + '.jpg'
             self.current_image = cv2.imread(self.current_image_name)
         segs = segs[1:]
         segs = [int(coord) for coord in segs]
         for i in range(0, len(segs), 4):
             retval.append(self.current_image[segs[i+2]:segs[i+3], segs[i]:segs[i+1]])
-        return retval
+        return {
+            'image_name': self.current_image_name,
+            'fields': retval
+        }

@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 
 """
 This is the abstract base class for a recognition module.
@@ -12,7 +12,8 @@ and is responsible for recognizing it.
 """
 
 
-class RecognitionModule(ABC):
+class RecognitionModule:
+    __metaclass__ = ABCMeta
 
     @abstractmethod
     def __init__(self, args):
