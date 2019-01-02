@@ -8,13 +8,16 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
         segmentation = [row.split('\t') for row in f.read().split('\n') if row != ''][1:]
     modules = load_modules.load(modules_config)
     dataset = HwDataset(image_folder, segmentation)
-    output = {}
+    output = []
     prev_img_name = None
+    count = 0
     line_number = 1
     for item in dataset:
         if prev_img_name is None or item['image_name'] != prev_img_name:
             prev_img_name = item['image_name']
             line_number = 1
+            count += 1
+            print(count)
         img_name = item['image_name']
         images = item['fields']
         line_output = {}
@@ -32,20 +35,20 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
         line_print = str(line_number)
         line_print = line_print if len(line_print) == 2 else '0' + line_print
         line_id = img_name.split('/')[-1].split('.')[0] + '_' + line_print
-        output[line_id] = line_output
-        print(line_number)
+        line_output['row_unique_id'] = line_id
+        output.append(line_output)
         line_number += 1
 
     # We now have the output for this data folder, output it.
     with open(output_filename, "w+") as f:
+        f.write('row_unique_id\t')
         for i, module in enumerate(modules):
             f.write(module['field_name'])
             if i != len(modules) - 1:
                 f.write('\t')
         f.write('\n')
-        for key in output:
-            line_output = output[key]
-            out_str = ''
+        for line_output in output:
+            out_str = line_output['row_unique_id'] + '\t'
             for i, module in enumerate(modules):
                 out_str += line_output[module['field_name']]
                 if i != len(modules) - 1:
