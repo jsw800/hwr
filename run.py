@@ -17,6 +17,7 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
             prev_img_name = item['image_name']
             line_number = 1
             count += 1
+            # print number of images read so far
             print(count)
         img_name = item['image_name']
         images = item['fields']
@@ -58,5 +59,5 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
 
 
 if __name__ == '__main__':
-    run('configs/config.yaml', 'data/images/004955523', 'data/segmentation/004955523.csv',
+    run('configs/none_config.yaml', 'data/images/004955523', 'data/segmentation/004955523.csv',
                     'output/004955523.csv')

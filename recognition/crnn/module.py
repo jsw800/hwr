@@ -44,7 +44,10 @@ class CRNNRecognition(RecognitionModule):
         img = torch.from_numpy(img.transpose(2, 0, 1).astype(np.float32) / 128 - 1)
         img = Variable(img[None, ...].type(self.dtype), requires_grad=False, volatile=True)
 
-        preds = self.network(img)
+        try:
+            preds = self.network(img)
+        except:
+            return "UNREADABLE"
 
         output_batch = preds.permute(1, 0, 2)
         out = output_batch.data.cpu().numpy()
