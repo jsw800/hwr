@@ -22,13 +22,13 @@
   pretty_field_name: "Name"
   method: crnn
   postprocessing: none
-  args: []
+  args: ['birthplace_config/config.json']
 
 - field_name: relation
   pretty_field_name: Relation
   method: crnn
   postprocessing: none
-  args: []
+  args: ['birthplace_config/config.json']
 
 - field_name: ownership
   pretty_field_name: "Home owned or rented"

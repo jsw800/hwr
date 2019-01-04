@@ -1,11 +1,13 @@
 import yaml
 from recognition.none import NoneRecognitionModule
+from recognition.crnn import CRNNRecognition
 from postprocessing.none import NonePostProcessModule
 
 # MAP MODULE NAMES HERE, add new modules here when you want to use them
 
 RECOGNITION_MODULE_NAMES = {
-    'none': NoneRecognitionModule
+    'none': NoneRecognitionModule,
+    'crnn': CRNNRecognition
 }
 
 POSTPROCESS_MODULE_NAMES = {

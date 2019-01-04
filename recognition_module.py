@@ -23,16 +23,6 @@ class RecognitionModule:
     def __init__(self, args):
         pass
 
-    # perform training
-    @abstractmethod
-    def train(self):
-        pass
-
-    # Check we can use the module (e.g. is there a weights file?)
-    @abstractmethod
-    def is_trained(self):
-        pass
-
     # produces output for a **single** image
     @abstractmethod
     def run(self, input_image):
