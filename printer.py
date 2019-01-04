@@ -14,8 +14,10 @@ class Printer(object):
 
     def write_line(self, unique_id, line):
         self.file.write(unique_id + '\t')
-        for field in self.fields:
-            self.file.write(line[field] + '\t')
+        for i, field in enumerate(self.fields):
+            self.file.write(line[field])
+            if i != len(self.fields) - 1:
+                self.file.write('\t')
         self.file.write('\n')
 
     def close(self):
