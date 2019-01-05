@@ -4,208 +4,243 @@
   pretty_field_name: "House Number"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: visit_number
   pretty_field_name: "Number of dwelling house in order of visitation"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: family_number
   pretty_field_name: "Number of family in order of visitation"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: name
   pretty_field_name: "Name"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: relation
   pretty_field_name: Relation
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: ownership
   pretty_field_name: "Home owned or rented"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: home_value
   pretty_field_name: "Value of home, if owned, or monthly rental, if rented"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: radio
   pretty_field_name: "Radio set"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: farm
   pretty_field_name: "Does this family live on a farm?"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: sex
   pretty_field_name: Sex
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: race
   pretty_field_name: "Color or Race"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: age
   pretty_field_name: "Age at last birthday"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: marital_status
   pretty_field_name: "Marital condition"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: marriage_age
   pretty_field_name: "Age at first marriage"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: education
   pretty_field_name: "Attended school or college anytime since Sept. 1, 1929"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: read_write
   pretty_field_name: "Whether able to read and write"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: birthplace
   pretty_field_name: "Birthplace"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: fthr_birthplace
   pretty_field_name: "Father's birthplace"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: mthr_birthplace
   pretty_field_name: "Mother's birthplace"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: first_language
   pretty_field_name: "Language spoken in home before coming to the United States"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: code1
   pretty_field_name: "Code A"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: code2
   pretty_field_name: "Code B"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: code3
   pretty_field_name: "Code C"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: immigration_yr
   pretty_field_name: "Year of immigration to the United States"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: naturalization
   pretty_field_name: "Naturalization"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: english
   pretty_field_name: "Whether able to speak English"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: occupation
   pretty_field_name: "Occupation"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: industry
   pretty_field_name: "Industry"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: code4
   pretty_field_name: "Code D"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: class
   pretty_field_name: "Class of worker"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: employed
   pretty_field_name: "Whether actually at work yesterday"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: line_num
   pretty_field_name: "If not, line number on unemployment schedule"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: veteran
   pretty_field_name: "Veteran"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: war
   pretty_field_name: "What war or expedition?"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
 
 - field_name: farm_schedule
   pretty_field_name: "Number of farm schedule"
   method: none
   postprocessing: none
-  args: []
+  recognition_args: []
+  postprocessing_args: []
