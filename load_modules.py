@@ -2,6 +2,7 @@ import yaml
 from recognition.none import NoneRecognitionModule
 from recognition.crnn import CRNNRecognition
 from postprocessing.none import NonePostProcessModule
+from postprocessing.dictionary import DictionaryPostProcess
 
 # MAP MODULE NAMES HERE, add new modules here when you want to use them
 
@@ -11,7 +12,8 @@ RECOGNITION_MODULE_NAMES = {
 }
 
 POSTPROCESS_MODULE_NAMES = {
-    'none': NonePostProcessModule
+    'none': NonePostProcessModule,
+    'dictionary': DictionaryPostProcess
 }
 
 
