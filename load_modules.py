@@ -32,7 +32,7 @@ def load(config_path):
         recognition_modules.append(
             RECOGNITION_MODULE_NAMES[module['method']](tuple(module['recognition_args'])))
         postprocess_modules.append(
-            POSTPROCESS_MODULE_NAMES[module['postprocessing']](tuple(module['postprocess_args'])))
+            POSTPROCESS_MODULE_NAMES[module['postprocessing']](tuple(module['postprocessing_args'])))
 
     return [{
         'field_name': field_names[i],
