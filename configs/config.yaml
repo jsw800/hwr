@@ -98,21 +98,21 @@
 
 - field_name: birthplace
   pretty_field_name: "Birthplace"
-  method: none
+  method: crnn
   postprocessing: none
-  args: []
+  args: ['birthplace_config/config.json']
 
 - field_name: fthr_birthplace
   pretty_field_name: "Father's birthplace"
-  method: none
+  method: crnn
   postprocessing: none
-  args: []
+  args: ['birthplace_config/config.json']
 
 - field_name: mthr_birthplace
   pretty_field_name: "Mother's birthplace"
-  method: none
+  method: crnn
   postprocessing: none
-  args: []
+  args: ['birthplace_config/config.json']
 
 - field_name: first_language
   pretty_field_name: "Language spoken in home before coming to the United States"
