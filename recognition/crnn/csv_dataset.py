@@ -32,11 +32,11 @@ class HwDataset(Dataset):
     def __getitem__(self, idx):
         item = self.data[idx]
         # cache current image so we don't waste time reopening
-        if item[0] != self.cur_img_name:
+        if item[0] != self.cur_img_name or self.cur_img is None:
             self.cur_img_name = item[0]
             self.cur_img = cv2.imread(os.path.join(self.root_path, item[0] + '.jpg'))
 
-        coords = [int(coord) for coord in item[2:5]]
+        coords = [int(coord) for coord in item[2:6]]
         img = self.cur_img[coords[2]:coords[3], coords[0]:coords[1]]
         gt = item[1]
 

@@ -1,7 +1,7 @@
 {
-    "training_set_path" : "recognition/crnn/name_config/train.csv",
-    "validation_set_path" : "recognition/crnn/name_config/val.csv",
-    "image_root_directory" : "~/fsl_groups/fslg_handwriting/compute/1930_images",
+    "training_set_path" : "name_config/train.csv",
+    "validation_set_path" : "name_config/val.csv",
+    "image_root_directory" : "/fslhome/jsw800/fsl_groups/fslg_handwriting/compute/1930_census/1930_images",
     "model_save_path" : "name_config/model.pt",
     "network" : {
         "input_height" : 60,
