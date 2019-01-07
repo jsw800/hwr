@@ -48,10 +48,12 @@ def main():
     criterion = CTCLoss()
     lowest_loss = float('inf')
     for epoch in range(1000):
+        print('epoch', epoch)
         sum_loss = 0.0
         steps = 0.0
         hw.train()
         for i, x in enumerate(train_dataloader):
+            print(i, '/', len(train_dataloader))
             line_imgs = Variable(x['line_imgs'].type(dtype), requires_grad=False)
             labels =  Variable(x['labels'], requires_grad=False)
             label_lengths = Variable(x['label_lengths'], requires_grad=False)

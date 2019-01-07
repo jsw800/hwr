@@ -15,12 +15,14 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
     prev_img_name = None
     count = 0
     line_number = 1
+    # Each item in this dataset is a row on a census page
+    # item contains a list of images, one for each field in the row
     for item in dataset:
         if prev_img_name is None or item['image_name'] != prev_img_name:
             prev_img_name = item['image_name']
             line_number = 1
             count += 1
-            # print number of images read so far
+            # print number of census pages read so far
             print(count)
         img_name = item['image_name']
         images = item['fields']
@@ -30,8 +32,10 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
             sys.stderr.write("number of fields != expected number of fields for image " + img_name +
                                                                     "line # " + str(line_number) + "\n")
         for i in range(min(len(images), len(modules))):
+            # Get this field's recognition/postprocessing module
             module = modules[i]
             image = images[i]
+            # Get recognizer output for image
             pred = module['recognition'].run(image)
             corrected_pred = module['postprocessing'].postprocess(pred)
             line_output[module['field_name']] = corrected_pred
