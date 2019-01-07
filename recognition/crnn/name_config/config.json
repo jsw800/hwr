@@ -1,0 +1,12 @@
+{
+    "training_set_path" : "recognition/crnn/name_config/train.csv",
+    "validation_set_path" : "recognition/crnn/name_config/val.csv",
+    "image_root_directory" : "~/fsl_groups/fslg_handwriting/compute/1930_images",
+    "model_save_path" : "name_config/model.pt",
+    "network" : {
+        "input_height" : 60,
+        "cnn_out_size": 1024,
+        "learning_rate": 1e-4
+    },
+    "character_set_path" : "birthplace_config/char_set.json"
+}

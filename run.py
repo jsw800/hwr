@@ -6,7 +6,8 @@ from printer import Printer
 
 def run(modules_config, image_folder, segmentation_path, output_filename):
     with open(segmentation_path) as f:
-        segmentation = [row.split('\t') for row in f.read().split('\n') if row != ''][1:]
+        segmentation = [row.split('\t') for row in f.read().split('\n') if row != '']
+    segmentation = segmentation[1:]
     modules = load_modules.load(modules_config)
     printer = Printer(output_filename, [module['field_name'] for module in modules])
     printer.write_header()

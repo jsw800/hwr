@@ -5,7 +5,7 @@ import json
 import character_set
 import sys
 import hw_dataset
-from hw_dataset import HwDataset
+from csv_dataset import HwDataset
 import crnn
 import os
 import torch
