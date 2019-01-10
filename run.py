@@ -8,15 +8,19 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
     with open(segmentation_path) as f:
         segmentation = [row.split('\t') for row in f.read().split('\n') if row != '']
     segmentation = segmentation[1:]
+    # recognition/postprocessing are loaded
     modules = load_modules.load(modules_config)
+    # printer handles all file output
     printer = Printer(output_filename, [module['field_name'] for module in modules])
     printer.write_header()
+    # HwDataset handles segmentation and images
     dataset = HwDataset(image_folder, segmentation)
     prev_img_name = None
     count = 0
     line_number = 1
     # Each item in this dataset is a row on a census page
-    # item contains a list of images, one for each field in the row
+    # item contains a list of images, one for each field in the row,
+    # as well as the name of the image that line is in.
     for item in dataset:
         if prev_img_name is None or item['image_name'] != prev_img_name:
             prev_img_name = item['image_name']
@@ -28,11 +32,12 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
         images = item['fields']
         line_output = {}
 
+        # warn possible segmentation errors, but don't auto fail, just warn
         if len(images) != len(modules):
             sys.stderr.write("number of fields != expected number of fields for image " + img_name +
                                                                     "line # " + str(line_number) + "\n")
         for i in range(min(len(images), len(modules))):
-            # Get this field's recognition/postprocessing module
+            # Get this field's recognition/postprocessing modules
             module = modules[i]
             image = images[i]
             # Get recognizer output for image

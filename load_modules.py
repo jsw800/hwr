@@ -4,7 +4,7 @@ from recognition.crnn import CRNNRecognition
 from postprocessing.none import NonePostProcessModule
 from postprocessing.dictionary import DictionaryPostProcess
 
-# MAP MODULE NAMES HERE, add new modules here when you want to use them
+# REGISTER MODULE NAMES HERE, add new modules here when you want to use them
 
 RECOGNITION_MODULE_NAMES = {
     'none': NoneRecognitionModule,
@@ -29,6 +29,7 @@ def load(config_path):
     for module in config:
         field_names.append(module['field_name'])
         field_pretty_names.append(module['pretty_field_name'])
+        # init recognition and postprocess for this field
         recognition_modules.append(
             RECOGNITION_MODULE_NAMES[module['method']](tuple(module['recognition_args'])))
         postprocess_modules.append(
@@ -42,6 +43,3 @@ def load(config_path):
     } for i in range(len(config))]
 
 
-if __name__ == "__main__":
-    x = load('configs/none_config.yaml')
-    print(x)
