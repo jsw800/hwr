@@ -1,0 +1,13 @@
+{
+    "image_root_directory" : "war_images",
+    "model_save_path" : "war_config/model.pt",
+    "classes" : {
+        "blank" : 0,
+        "WW" : 1
+    },
+    "network" : {
+        "input_height" : 32,
+        "num_of_channels" : 3,
+        "learning_rate": 1e-4
+    }
+}

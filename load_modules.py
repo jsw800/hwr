@@ -1,6 +1,7 @@
 import yaml
 from recognition.none import NoneRecognitionModule
 from recognition.crnn import CRNNRecognition
+from recognition.classifier import ClassifierRecognition
 from postprocessing.none import NonePostProcessModule
 from postprocessing.dictionary import DictionaryPostProcess
 
@@ -8,7 +9,8 @@ from postprocessing.dictionary import DictionaryPostProcess
 
 RECOGNITION_MODULE_NAMES = {
     'none': NoneRecognitionModule,
-    'crnn': CRNNRecognition
+    'crnn': CRNNRecognition,
+    'classifier': ClassifierRecognition
 }
 
 POSTPROCESS_MODULE_NAMES = {
