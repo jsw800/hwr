@@ -17,13 +17,13 @@ class RecognitionModule:
 
     """
     Each recognition module can have whatever args it wants, those are just passed in
-    as a tuple. Document what args are expected in the concrete recognition module classes
+    as a single tuple. Document what args are expected in the concrete recognition module classes
     """
     @abstractmethod
     def __init__(self, args):
         pass
 
-    # produces output for a **single** image
+    # produces output for a single image
     @abstractmethod
     def run(self, input_image):
         pass

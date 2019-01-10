@@ -10,6 +10,10 @@ not work. This serves more as a documentation file than anything.
 class PostprocessModule:
     __metaclass__ = ABCMeta
 
+    """
+    Each postprocess module can define what args it wants. They are passed
+    in as a single tuple. Document expected args inside each postprocess module.
+    """
     @abstractmethod
     def __init__(self, args):
         pass
