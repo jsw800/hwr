@@ -2,11 +2,11 @@
     "training_set_path" : "name_config/train.csv",
     "validation_set_path" : "name_config/val.csv",
     "image_root_directory" : "/fslhome/jsw800/fsl_groups/fslg_handwriting/compute/1930_census/1930_images",
-    "model_save_path" : "name_config/model.pt",
+    "model_save_path" : "all_config/model.pt",
     "network" : {
         "input_height" : 60,
         "cnn_out_size": 1024,
         "learning_rate": 1e-4
     },
-    "character_set_path" : "name_config/char_set.json"
+    "character_set_path" : "all_config/char_set.json"
 }

@@ -4,3 +4,4 @@ warp-ctc
 *.pyc
 data
 output
+*.pt
