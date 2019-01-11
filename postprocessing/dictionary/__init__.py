@@ -10,10 +10,12 @@ THIS_DIR_PATH = 'postprocessing/dictionary'
 
 class DictionaryPostProcess(PostprocessModule):
 
+    # Takes on argument - dictionary path - dictionary should be a txt file
+    # with a possible label on each line
     def __init__(self, args):
         dict_path = args[0]
         with open(join(THIS_DIR_PATH, dict_path)) as f:
-            self.dictionary = set([row for row in f.read().split('\n') if row != ''])
+            self.dictionary = list(set([row for row in f.read().split('\n') if row != '']))
 
     def postprocess(self, recognizer_output):
         if recognizer_output in self.dictionary:
