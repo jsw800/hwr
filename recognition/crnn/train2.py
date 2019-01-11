@@ -58,7 +58,11 @@ def main():
             labels =  Variable(x['labels'], requires_grad=False)
             label_lengths = Variable(x['label_lengths'], requires_grad=False)
 
-            preds = hw(line_imgs).cpu()
+            try:
+                preds = hw(line_imgs).cpu()
+            except Exception as e:
+                print('error on {}'.format(x))
+                continue
             preds_size = Variable(torch.IntTensor([preds.size(0)] * preds.size(1)))
 
             output_batch = preds.permute(1,0,2)

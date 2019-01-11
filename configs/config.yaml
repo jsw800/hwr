@@ -32,7 +32,7 @@
   pretty_field_name: Relation
   method: crnn
   postprocessing: none
-  recognition_args: ['birthplace_config/config.json']
+  recognition_args: ['relation_config/config.json']
   postprocessing_args: []
 
 - field_name: ownership
@@ -233,7 +233,7 @@
 
 - field_name: war
   pretty_field_name: "What war or expedition?"
-  method: classifier
+  method: none
   postprocessing: none
   recognition_args: ["war_config/config.json"]
   postprocessing_args: []

@@ -50,5 +50,5 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
 
 
 if __name__ == '__main__':
-    run('configs/config.yaml', 'data/images/004955523', 'data/segmentation/004955523.csv',
-                    'output/004955523.csv')
+    run('configs/config.yaml', 'data/images/004949552', 'data/segmentation/004949552.csv',
+                    'output/004949552.csv')
