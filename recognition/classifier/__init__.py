@@ -26,14 +26,19 @@ class ClassifierRecognition(RecognitionModule):
             self.dtype = torch.cuda.FloatTensor
         else:
             self.dtype = torch.FloatTensor
+        self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path'])))
+        self.network.eval()
 
 
     def run(self, input_image):
         input_image = cv2.resize(input_image, (self.img_height, self.img_height),
                                                     interpolation=cv2.INTER_CUBIC)
         input_image = input_image.astype(np.float32)
+        input_image = input_image / 128.0 - 1.0
+        input_image = torch.from_numpy(input_image.transpose(2, 0, 1))
+        input_image = Variable(input_image[None, ...].type(self.dtype), requires_grad=False, volatile=True)
         
-        preds = self.network(input_image).cpu().numpy()
+        preds = self.network(input_image).data.cpu().numpy()
         pred = np.argmax(preds)
         for key in self.config['classes']:
             if self.config['classes'][key] == pred:

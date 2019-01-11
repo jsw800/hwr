@@ -233,7 +233,7 @@
 
 - field_name: war
   pretty_field_name: "What war or expedition?"
-  method: none
+  method: classifier
   postprocessing: none
   recognition_args: ["war_config/config.json"]
   postprocessing_args: []
