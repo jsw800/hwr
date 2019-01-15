@@ -24,7 +24,7 @@
 - field_name: name
   pretty_field_name: "Name"
   method: crnn
-  postprocessing: none
+  postprocessing: lastnamecorrection
   recognition_args: ['birthplace_config/config.json']
   postprocessing_args: []
 
