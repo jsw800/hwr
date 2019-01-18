@@ -5,3 +5,4 @@ warp-ctc
 data
 output
 *.pt
+*.json

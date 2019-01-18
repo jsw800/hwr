@@ -27,7 +27,10 @@ class CRNNRecognition(RecognitionModule):
             'num_of_channels': 3,
             'num_of_outputs': len(self.idx_to_char) + 1
         })
-        self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path'])))
+        if torch.cuda.is_available():
+            self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path'])))
+        else:
+            self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path']), map_location='cpu'))
         if torch.cuda.is_available():
             self.network.cuda()
             self.dtype = torch.cuda.FloatTensor

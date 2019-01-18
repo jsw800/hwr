@@ -24,9 +24,11 @@ class ClassifierRecognition(RecognitionModule):
         if torch.cuda.is_available():
             self.network.cuda()
             self.dtype = torch.cuda.FloatTensor
+            self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path'])))
         else:
             self.dtype = torch.FloatTensor
-        self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path'])))
+            self.network.load_state_dict(torch.load(join(THIS_DIR_PATH, self.config['model_save_path']),
+                                                    map_location='cpu'))
         self.network.eval()
 
 
