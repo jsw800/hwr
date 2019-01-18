@@ -28,14 +28,20 @@ def load(config_path):
     field_pretty_names = []
     recognition_modules = []
     postprocess_modules = []
-    for module in config:
-        field_names.append(module['field_name'])
-        field_pretty_names.append(module['pretty_field_name'])
-        # init recognition and postprocess for this field
-        recognition_modules.append(
-            RECOGNITION_MODULE_NAMES[module['method']](tuple(module['recognition_args'])))
-        postprocess_modules.append(
-            POSTPROCESS_MODULE_NAMES[module['postprocessing']](tuple(module['postprocessing_args'])))
+    for field_config in config:
+        field_names.append(field_config['field_name'])
+        field_pretty_names.append(field_config['pretty_field_name'])
+
+        # get class names
+        rec_class = RECOGNITION_MODULE_NAMES[field_config['method']]
+        postproc_class = POSTPROCESS_MODULE_NAMES[field_config['postprocessing']]
+
+        # construct rec/postproc objects with args from config
+        rec_module = rec_class(tuple(field_config['recognition_args']))
+        postproc_module = postproc_class(tuple(field_config['postprocessing_args']))
+
+        recognition_modules.append(rec_module)
+        postprocess_modules.append(postproc_module)
 
     return [{
         'field_name': field_names[i],
