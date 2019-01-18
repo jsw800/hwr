@@ -41,7 +41,7 @@ class HwDataset(Dataset):
         gt = item[6]
 
         if img is None:
-            print("Warning: image is None:", os.path.join(self.root_path, item['image_path']))
+            print("Warning: image is None:", os.path.join(self.root_path, item[0]))
             return None
 
         percent = float(self.img_height) / img.shape[0]

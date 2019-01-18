@@ -42,12 +42,13 @@ class HwDataset(Dataset):
         gt = item[5*item_idx + 1]
 
         if img is None:
-            print("Warning: image is None:", os.path.join(self.root_path, item['image_path']))
+            print("Warning: image is None:", os.path.join(self.root_path, item[0]))
             return None
 
         if img.shape[0] == 0 or img.shape[1] == 0:
-            print("Warning: image has no size:", os.path.join(self.root_path, item['image_path']))
+            print("Warning: image has no size:", os.path.join(self.root_path, item[0]))
             return None
+
         percent = float(self.img_height) / img.shape[0]
         img = cv2.resize(img, (0,0), fx=percent, fy=percent, interpolation=cv2.INTER_CUBIC)
 
