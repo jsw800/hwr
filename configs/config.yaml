@@ -26,7 +26,7 @@
   method: crnn
   postprocessing: lastnamecorrection
   recognition_args: ['birthplace_config/config.json']
-  postprocessing_args: []
+  postprocessing_args: ['surname_dict.txt']
 
 - field_name: relation
   pretty_field_name: Relation
