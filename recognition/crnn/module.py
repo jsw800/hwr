@@ -49,7 +49,8 @@ class CRNNRecognition(RecognitionModule):
 
         try:
             preds = self.network(img)
-        except:
+        except Exception as e:
+            print(e)
             return "UNREADABLE"
 
         output_batch = preds.permute(1, 0, 2)

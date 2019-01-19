@@ -54,6 +54,8 @@ def main():
         hw.train()
         for i, x in enumerate(train_dataloader):
             print(i, '/', len(train_dataloader))
+            if x['line_imgs'].shape[3] > 500:
+                continue
             line_imgs = Variable(x['line_imgs'].type(dtype), requires_grad=False)
             labels =  Variable(x['labels'], requires_grad=False)
             label_lengths = Variable(x['label_lengths'], requires_grad=False)
