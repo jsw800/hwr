@@ -14,6 +14,7 @@ class DictionaryPostProcess(PostprocessModule):
     # with a possible label on each line
     def __init__(self, args):
         dict_path = args[0]
+	#print(dict_path)
         with open(join(THIS_DIR_PATH, dict_path)) as f:
             self.dictionary = list(set([row for row in f.read().split('\n') if row != '']))
 
@@ -27,6 +28,7 @@ class DictionaryPostProcess(PostprocessModule):
             if dist < min_ed:
                 min_ed = dist
                 best = label
-
+	if min_ed > (len(recognizer_output) / 2):
+            return recognizer_output
         return best
 
