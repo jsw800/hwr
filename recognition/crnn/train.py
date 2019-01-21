@@ -63,7 +63,7 @@ def main():
             try:
                 preds = hw(line_imgs).cpu()
             except Exception as e:
-                print('error on {}'.format(x))
+                print(e)
                 continue
             preds_size = Variable(torch.IntTensor([preds.size(0)] * preds.size(1)))
 

@@ -24,8 +24,8 @@
 - field_name: name
   pretty_field_name: "Name"
   method: crnn
-  postprocessing: lastnamecorrection
-  recognition_args: ['name_config/config3.json']
+  postprocessing: none # lastnamecorrection
+  recognition_args: ['name_config/config.json']
   postprocessing_args: ['surname_dict.txt']
 
 - field_name: relation
