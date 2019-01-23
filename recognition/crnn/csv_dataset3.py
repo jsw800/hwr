@@ -50,7 +50,10 @@ class HwDataset(Dataset):
             return None
 
         percent = float(self.img_height) / img.shape[0]
-        img = cv2.resize(img, (0,0), fx=percent, fy=percent, interpolation=cv2.INTER_CUBIC)
+        try:
+            img = cv2.resize(img, (0,0), fx=percent, fy=percent, interpolation=cv2.INTER_CUBIC)
+        except:
+            return None
 
         if self.augmentation:
             img = grid_distortion.warp_image(img)

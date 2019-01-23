@@ -55,26 +55,18 @@ class HwDataset(Dataset):
         self.img_height = img_height
         self.augmentation = augmentation
 
-    # enables len(dataset)
     def __len__(self):
         return len(self.data)
 
-    # This function enables subscripting ( dataset[idx] )
-    # when the dataset object is subscripted, this determines what is returned.
     def __getitem__(self, idx):
-        # get data for this idx
         item = self.data[idx]
 
-        # read the image
         img = cv2.imread(item['im'])
 
         if img is None:
             print("Warning: image is None:", item['im'])
             return None
 
-        # resize the image (in this net, we want square images)
-        percent = float(self.img_height) / img.shape[0]
-        #img = cv2.resize(img, (0,0), fx=percent, fy=percent, interpolation = cv2.INTER_CUBIC)
         img = cv2.resize(img, (self.img_height, self.img_height), interpolation=cv2.INTER_CUBIC)
 
         # image augmentation (this basically distorts the image so we can have more training data

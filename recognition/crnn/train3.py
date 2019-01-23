@@ -64,7 +64,7 @@ def main():
             try:
                 preds = hw(line_imgs).cpu()
             except Exception as e:
-                print('error on {}'.format(x))
+                print(e)
                 continue
             preds_size = Variable(torch.IntTensor([preds.size(0)] * preds.size(1)))
 
@@ -91,17 +91,26 @@ def main():
                 sum_loss += cer
                 steps += 1
 
-        print("Training CER", sum_loss / steps)
+        if steps == 0.0 or steps == 0:
+            cer = "Error"
+        else:
+            cer = sum_loss / steps
+        print("Training CER", cer)
 
         sum_loss = 0.0
         steps = 0.0
         hw.eval()
-        for x in test_dataloader:
+        for i, x in enumerate(test_dataloader):
+            print(i, '/', len(train_dataloader))
             line_imgs = Variable(x['line_imgs'].type(dtype), requires_grad=False, volatile=True)
             labels =  Variable(x['labels'], requires_grad=False, volatile=True)
             label_lengths = Variable(x['label_lengths'], requires_grad=False, volatile=True)
 
-            preds = hw(line_imgs).cpu()
+            try:
+                preds = hw(line_imgs).cpu()
+            except Exception as e:
+                print(e)
+                continue
 
             output_batch = preds.permute(1,0,2)
             out = output_batch.data.cpu().numpy()
@@ -114,7 +123,11 @@ def main():
                 sum_loss += cer
                 steps += 1
 
-        print("Test CER", sum_loss / steps)
+        if steps == 0.0 or steps == 0:
+            cer = "Error"
+        else:
+            cer = sum_loss / steps
+        print("Test CER", cer)
 
         if lowest_loss > sum_loss/steps:
             lowest_loss = sum_loss/steps

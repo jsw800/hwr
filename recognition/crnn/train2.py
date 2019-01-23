@@ -90,7 +90,10 @@ def main():
                 cer = error_rates.cer(gt_str, pred_str)
                 sum_loss += cer
                 steps += 1
-
+        if steps == 0.0 or steps == 0:
+            cer = "Error"
+        else:
+            cer = sum_loss / steps
         print("Training CER", sum_loss / steps)
 
         sum_loss = 0.0

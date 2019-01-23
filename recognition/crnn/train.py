@@ -90,7 +90,11 @@ def main():
                 sum_loss += cer
                 steps += 1
 
-        print("Training CER", sum_loss / steps)
+        if steps == 0.0 or steps == 0:
+            cer = "Error"
+        else:
+            cer = sum_loss / steps
+        print("Training CER:", cer)
 
         sum_loss = 0.0
         steps = 0.0
@@ -100,7 +104,11 @@ def main():
             labels =  Variable(x['labels'], requires_grad=False, volatile=True)
             label_lengths = Variable(x['label_lengths'], requires_grad=False, volatile=True)
 
-            preds = hw(line_imgs).cpu()
+            try:
+                preds = hw(line_imgs).cpu()
+            except Exception as e:
+                print(e)
+                continue
 
             output_batch = preds.permute(1,0,2)
             out = output_batch.data.cpu().numpy()
@@ -113,7 +121,11 @@ def main():
                 sum_loss += cer
                 steps += 1
 
-        print("Test CER", sum_loss / steps)
+        if steps == 0.0 or steps == 0:
+            cer = "Error"
+        else:
+            cer = sum_loss / steps
+        print("Test CER", cer)
 
         if lowest_loss > sum_loss/steps:
             lowest_loss = sum_loss/steps

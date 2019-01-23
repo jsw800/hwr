@@ -18,7 +18,6 @@ PADDING_CONSTANT = 0
 
 def collate(batch):
     batch = [b for b in batch if b is not None]
-    #These all should be the same size or error
     assert len(set([b['line_img'].shape[0] for b in batch])) == 1
     assert len(set([b['line_img'].shape[2] for b in batch])) == 1
 

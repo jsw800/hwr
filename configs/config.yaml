@@ -32,7 +32,7 @@
   pretty_field_name: Relation
   method: crnn
   postprocessing: none
-  recognition_args: ['relation_config/config.json']
+  recognition_args: ['relation_config/good_config.json']
   postprocessing_args: []
 
 - field_name: ownership

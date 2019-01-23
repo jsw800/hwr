@@ -39,6 +39,7 @@ This is a dependency that many of the recognition modules may end up using. We'l
 recognition modules that use CTC won't need their own copy.
 
 
+# General info
 Recognition module classes should be stored in `recognition/[module_name_here]` directory
 (please put them in their own directory)
 
