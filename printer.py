@@ -19,6 +19,7 @@ class Printer(object):
             if i != len(self.fields) - 1:
                 self.file.write('\t')
         self.file.write('\n')
+        self.file.flush()
 
     def close(self):
         self.file.close()

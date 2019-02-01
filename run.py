@@ -1,6 +1,6 @@
 import load_modules
 import sys
-from datasets.Dataset import HwDataset
+from datasets import FullDataset
 from printer import Printer
 
 
@@ -14,7 +14,7 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
     modules = load_modules.load(modules_config)
     printer = Printer(output_filename, [module['field_name'] for module in modules])
     printer.write_header()
-    dataset = HwDataset(image_folder, segmentation)
+    dataset = FullDataset(image_folder, segmentation)
 
     prev_img_name = None
     count = 0

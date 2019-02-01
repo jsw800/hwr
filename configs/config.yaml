@@ -25,7 +25,7 @@
   pretty_field_name: "Name"
   method: crnn
   postprocessing: none # lastnamecorrection
-  recognition_args: ['name_config/config.json']
+  recognition_args: ['name_config/names_config2.json']
   postprocessing_args: ['surname_dict.txt']
 
 - field_name: relation
@@ -184,9 +184,9 @@
 
 - field_name: occupation
   pretty_field_name: "Occupation"
-  method: none
+  method: crnn
   postprocessing: none
-  recognition_args: []
+  recognition_args: ['occupation_config/config.json']
   postprocessing_args: []
 
 - field_name: industry

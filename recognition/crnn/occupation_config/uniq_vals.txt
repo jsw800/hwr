@@ -1,0 +1,263 @@
+
+Accountant
+Actor
+Agent
+Assembler
+Assistant
+Asst Agent
+Attendant
+Attorney
+auditor
+Auditor
+Auto dealer
+Auto electrician
+Auto Electrician
+Auto Mechani
+Auto Mechanic
+Auto Salesman
+Baker
+Bank clerk
+Banker
+barber
+Barber
+Battery man
+Beauty operator
+Billing Clerk
+Blacksmith
+Boat Builder
+Bookeeper
+Bookkeeper
+Book keeper
+Book-keeper
+Book Keeper
+Broker
+Builder
+Bus driver
+Bus Driver
+butcher
+Butcher
+care taker
+carpenter
+Carpenter
+Car-repairer
+Cashier
+chauffeur
+Chauffeur
+Chemist
+Chicken Raiser
+Civil Engineer
+Cleaner
+Clergyman
+clerk
+Clerk
+Collector
+conductor
+Conductor
+Con. Engineer
+construction
+Contractor
+cook
+Cook
+Cost Clerk
+cutter
+Cutter
+Dairy man
+Dairy Man
+dairy operator
+Dairy Operator
+Dealer
+decorator
+Decorator
+Deliveryman
+Delivery man
+Delivery-man
+Dental Nurse
+Dentist
+Designer
+Dishwasher
+Dish washer
+Doctor
+Dressmaker
+Dress maker
+Dress-maker
+Driller
+driver
+Driver
+Druggist
+Editor
+Electrical Engin
+Electrical Engine
+electrician
+Electrician
+Engineer
+farmer
+Farmer
+Farm Forema
+Farm hand
+Farm Laborer
+Farm operator
+Fireman
+Fire-man
+Fisherman
+Florist
+Forelady
+foreman
+Foreman
+Fore-man
+gardener
+Gardener
+gardner
+gas Station
+Grocery man
+Grocery-man
+guide
+Hair-dresser
+Helper
+Herdsman
+Hotel keeper
+Hotel Manager
+housekeeper
+Housekeeper
+House keeper
+House-keeper
+House Keeper
+housework
+Housework
+House work
+House-work
+Ice-cream maker
+Ice Cream Maker
+janitor
+Janitor
+Janitress
+laborer
+Laborer
+Land-Lady
+Laundress
+Laundry
+Laundry woman
+lawyer
+Lawyer
+Librarian
+Local Agent
+longshoreman
+Longshoreman
+Lumberman
+machinist
+Machinist
+Maid
+Mail Carrier
+manager
+Manager
+Meat cutter
+Meat Cutter
+mechanic
+Mechanic
+merchant
+Merchant
+milker
+Milker
+Milk man
+Milk Salesman
+Mill Man
+Minister
+Missionary
+Motorman
+Motor-man
+Motor Mechani
+Musician
+Music Teacher
+Newspaper Man
+none
+None
+nurse
+Nurse
+Officer
+Oil dealer
+Oil driller
+Oil worker
+Oil Worker
+operator
+Operator
+Packer
+painter
+Painter
+parts clerk
+Parts man
+Pastry Cook
+Peace officer
+Peddler
+Pharmist
+Physician
+Pipe Fitter
+Plasterer
+plumber
+Plumber
+Police man
+poultry man
+Pressman
+Priest
+printer
+Printer
+Priprietor
+Proprietor
+Radio Operator
+rancher
+Rancher
+Real Estate
+Real estate Broker
+Research asst.
+Retailer
+Retail Store
+retired
+Retired
+Sailor
+Saleslady
+salesman
+Salesman
+Sales Manager
+seaman
+Seaman
+seamstress
+Seamstress
+Secretary
+servant
+Servant
+Shoe Repairer
+Sign Painter
+Slack Clerk
+Social Worker
+Stationery Engine
+Stationery Engineer
+stenographer
+Stock Clerk
+stock man
+Storekeeper
+Store-keeper
+student
+Student
+Superintendant
+Surveyor
+teacher
+Teacher
+Teller
+trained nurse
+Trained Nurse
+truck driver
+truck Driver
+Truck driver
+Truck-driver
+Truck Driver
+Trucking
+Typist
+Undertaker
+waiter
+Waiter
+waitress
+Waitress
+Walnut Packe
+Watchman
+Weaver
+Wholesale Dealer
+Yacht Builder
+Yard foreman
