@@ -19,6 +19,7 @@ def run(modules_config, image_folder, segmentation_path, field_name):
     for census_line in dataset:
         img_name = census_line['image_name']
         img = census_line['img']
+        rectified_img = module['preprocessing'].preprocess(img)
         pred = module['recognition'].run(img)
         corrected_pred = module['postprocessing'].postprocess(pred)
         print(img_name + '\t' + corrected_pred)

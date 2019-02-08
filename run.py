@@ -40,7 +40,8 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
         for i in range(min(len(images), len(modules))):
             module = modules[i]
             image = images[i]
-            pred = module['recognition'].run(image)
+            rectified_img = module['preprocessing'].preprocess(image)
+            pred = module['recognition'].run(rectified_img)
             corrected_pred = module['postprocessing'].postprocess(pred)
             line_output[module['field_name']] = corrected_pred
 
