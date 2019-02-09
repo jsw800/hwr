@@ -31,7 +31,7 @@
   pretty_field_name: "Name"
   preprocessing: none
   method: crnn
-  postprocessing: surnamecorrection
+  postprocessing: none #surnamecorrection
   preprocessing_args: []
   recognition_args: ['name_config/names_config2.json']
   postprocessing_args: ['surname_dict.txt']

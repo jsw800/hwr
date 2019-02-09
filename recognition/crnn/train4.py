@@ -25,7 +25,7 @@ def main():
     idx_to_char, char_to_idx = character_set.load_char_set(config['character_set_path'])
 
     train_dataset = HwDataset(config['training_set_path'], char_to_idx, img_height=config['network']['input_height'], root_path=config['image_root_directory'], augmentation=True)
-    train_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=False, num_workers=0, collate_fn=hw_dataset.collate)
+    train_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=True, num_workers=16, collate_fn=hw_dataset.collate)
 
     test_dataset = HwDataset(config['validation_set_path'], char_to_idx, img_height=config['network']['input_height'], root_path=config['image_root_directory'])
     test_dataloader = DataLoader(test_dataset, batch_size=8, shuffle=False, num_workers=0, collate_fn=hw_dataset.collate)
