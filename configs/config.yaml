@@ -21,10 +21,10 @@
   recognition_args: []
   postprocessing_args: []
 
-- field_name: name
-  pretty_field_name: "Name"
+- field_name: Name
+  pretty_field_name: "Surname"
   method: crnn
-  postprocessing: none # lastnamecorrection
+  postprocessing: surnamecorrection
   recognition_args: ['name_config/config.json']
   postprocessing_args: ['surname_dict.txt']
 
@@ -59,7 +59,7 @@
 - field_name: farm
   pretty_field_name: "Does this family live on a farm?"
   method: none
-  postprocessing: none
+  postprocessing: farmcorrection
   recognition_args: []
   postprocessing_args: []
 
@@ -73,7 +73,7 @@
 - field_name: race
   pretty_field_name: "Color or Race"
   method: none
-  postprocessing: none
+  postprocessing: racecorrection
   recognition_args: []
   postprocessing_args: []
 

@@ -4,7 +4,9 @@ from recognition.crnn import CRNNRecognition
 from recognition.classifier import ClassifierRecognition
 from postprocessing.none import NonePostProcessModule
 from postprocessing.dictionary import DictionaryPostProcess
-from postprocessing.lastnamecorrection import LastNameCorrection
+from postprocessing.surnamecorrection import SurnameCorrection
+from postprocessing.farmcorrection import FarmCorrection
+from postprocessing.racecorrection import RaceCorrection
 
 # REGISTER MODULE NAMES HERE, add new modules here when you want to use them
 
@@ -17,7 +19,9 @@ RECOGNITION_MODULE_NAMES = {
 POSTPROCESS_MODULE_NAMES = {
     'none': NonePostProcessModule,
     'dictionary': DictionaryPostProcess,
-    'lastnamecorrection': LastNameCorrection
+    'surnamecorrection': SurnameCorrection,
+    'farmcorrection': FarmCorrection,
+    'racecorrection': RaceCorrection
 }
 
 
