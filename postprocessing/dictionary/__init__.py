@@ -28,7 +28,7 @@ class DictionaryPostProcess(PostprocessModule):
             if dist < min_ed:
                 min_ed = dist
                 best = label
-	if min_ed > (len(recognizer_output) / 2):
+	if min_ed > (len(recognizer_output) / 4):
             return recognizer_output
         return best
 

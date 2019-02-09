@@ -1,0 +1,12 @@
+{
+    "training_set_path" : "occupation_config/train.csv",
+    "validation_set_path" : "occupation_config/labels.csv",
+    "image_root_directory" : "/fslhome/joshh2/hwr/recognition/crnn/occupation_config/all_images",
+    "model_save_path" : "name_config/model.pt",
+    "network" : {
+        "input_height" : 60,
+        "cnn_out_size": 1024,
+        "learning_rate": 1e-4
+    },
+    "character_set_path" : "name_config/char_set.json"
+}

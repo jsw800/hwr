@@ -31,7 +31,7 @@
   pretty_field_name: "Name"
   preprocessing: none
   method: crnn
-  postprocessing: none # lastnamecorrection
+  postprocessing: surnamecorrection
   preprocessing_args: []
   recognition_args: ['name_config/names_config2.json']
   postprocessing_args: ['surname_dict.txt']
@@ -76,7 +76,7 @@
   pretty_field_name: "Does this family live on a farm?"
   preprocessing: none
   method: none
-  postprocessing: none
+  postprocessing: farmcorrection
   preprocessing_args: []
   recognition_args: []
   postprocessing_args: []
@@ -94,7 +94,7 @@
   pretty_field_name: "Color or Race"
   preprocessing: none
   method: none
-  postprocessing: none
+  postprocessing: racecorrection
   preprocessing_args: []
   recognition_args: []
   postprocessing_args: []

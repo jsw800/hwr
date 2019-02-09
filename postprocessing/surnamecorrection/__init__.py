@@ -2,14 +2,12 @@ from postprocess_module import PostprocessModule
 import editdistance as ed
 from os.path import join
 
-THIS_DIR_PATH = 'postprocessing/lastnamecorrection'
+THIS_DIR_PATH = 'postprocessing/surnamecorrection'
 
-class LastNameCorrection(PostprocessModule):
+class SurnameCorrection(PostprocessModule):
 
     def __init__(self, args):
-        dict_path = args[0]
-	with open(join(THIS_DIR_PATH, dict_path)) as f:
-                self.dictionary = list(set([row for row in f.read().split('\n') if row != '']))
+        self.previous_output = ""
 
     def postprocess(self, recognizer_output): 
 	if recognizer_output[0] == '-':
