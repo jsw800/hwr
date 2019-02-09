@@ -16,7 +16,7 @@ class FarmCorrection(PostprocessModule):
 	    self.previous_output = recognizer_output
 	    return recognizer_output
 	elif len(recognizer_output) == 0 or recognizer_output == "--":
-	    return "--"
+	    return "blank"
 	else:
 	    return "invalid input"
 	   
