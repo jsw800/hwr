@@ -8,3 +8,6 @@ class NonePreprocessModule(PreprocessModule):
 
     def preprocess(self, input_image):
         return input_image
+
+    def batch_preprocess(self, input_batch):
+        return input_batch

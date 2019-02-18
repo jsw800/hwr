@@ -47,3 +47,22 @@ class ClassifierRecognition(RecognitionModule):
                 return key
         return "CLASSIFICATION ERROR"
 
+    def batch_run(self, input_batch):
+        input_batch = cv2.resize(input_batch, (self.img_height, self.img_height),
+                                                interpolation=cv2.INTER_CUBIC)
+        input_batch = input_batch.astype(np.float32)
+        input_batch = input_batch / 128.0 - 1.0
+        input_image = torch.from_numpy(input_batch.transpose(2, 0, 1)).type(self.dtype)
+        input_batch = Variable(input_batch, requires_grad=False, volatile=True)
+
+        preds = self.network(input_batch).data.cpu().numpy()
+        print(preds.shape)
+        preds = np.argmax(preds, axis=0)
+        out = []
+        # TODO: handle errors?
+        for pred in preds:
+            for key in self.config['classes']:
+                if self.config['classes'][key] == pred:
+                    out.append(key)
+                    break
+        return out

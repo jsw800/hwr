@@ -21,3 +21,7 @@ class PreprocessModule:
     @abstractmethod
     def preprocess(self, input_image):
         pass
+
+    @abstractmethod
+    def batch_preprocess(self, input_image):
+        pass

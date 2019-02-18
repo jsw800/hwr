@@ -28,3 +28,7 @@ class RecognitionModule:
     def run(self, input_image):
         pass
 
+    @abstractmethod
+    def batch_run(self, input_batch):
+        pass
+

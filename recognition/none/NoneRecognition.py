@@ -12,3 +12,6 @@ class NoneRecognitionModule(RecognitionModule):
 
     def run(self, input_image):
         return DEFAULT_OUTPUT
+
+    def batch_run(self, input_batch):
+        return input_batch

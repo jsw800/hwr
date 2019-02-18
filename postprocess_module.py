@@ -21,3 +21,9 @@ class PostprocessModule:
     @abstractmethod
     def postprocess(self, recognizer_output):
         pass
+
+    def batch_postprocess(self, output_batch):
+        out = []
+        for st in output_batch:
+            out.append(self.postprocess(st))
+        return out

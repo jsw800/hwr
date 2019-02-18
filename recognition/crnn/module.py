@@ -61,4 +61,22 @@ class CRNNRecognition(RecognitionModule):
         pred_raw_str = string_utils.label2str(pred_raw, self.idx_to_char, True)
         return pred_str
 
+    def batch_run(self, input_batch):
+        imgs = torch.from_numpy(input_batch.astype(np.int32)).type(self.dtype)
+        line_imgs = Variable(imgs, requires_grad=False, volatile=True)
+        try:
+            preds = self.network(img)
+        except Exception as e:
+            print("AAAAH???")
+            return []
+        output_batch = preds.permute(1, 0, 2)
+        out = output_batch.data.cpu().numpy()
 
+        retval = []
+        for i in range(out.shape[0]):
+            logits = out[i, ...]
+            pred, predPraw = string_utils.naive_decode(logits)
+            pred_str = string_utils.label2str(pred, self.idx_to_char, False)
+            print(pred_str)
+            retval.append(pred_str)
+        return retval
