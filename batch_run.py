@@ -5,6 +5,7 @@ from printer import Printer
 from torch.utils.data import DataLoader
 from collate import collate
 
+
 def run(modules_config, image_folder, segmentation_path, output_filename):
 
     # Load all objects we will need throughout the run process
@@ -33,7 +34,7 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
         # warn possible segmentation errors, but don't auto fail, just warn
         if len(images) != len(modules):
             sys.stderr.write("number of fields != expected number of fields for images " +
-                        img_name + "line # " + str(line_number) + "\n")
+                        img_names + "line # " + str(line_number) + "\n")
 
         # Read each field on this line into line_output
         for i in range(min(len(images), len(modules))):
@@ -61,11 +62,10 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
             line_ids.append(idnt)
             line_number += 1
         printer.write_batch(line_ids, line_output)
-        line_number += 1
 
     printer.close()
 
 
 if __name__ == '__main__':
-    run('configs/config.yaml', 'data/images/004953237', 'data/segmentation/004953237.csv',
+    run('configs/none_config.yaml', 'data/images/004953237', 'data/segmentation/004953237.csv',
                     'output/004953237.csv')
