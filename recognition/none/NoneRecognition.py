@@ -14,4 +14,4 @@ class NoneRecognitionModule(RecognitionModule):
         return DEFAULT_OUTPUT
 
     def batch_run(self, input_batch):
-        return input_batch
+        return [DEFAULT_OUTPUT for i in range(input_batch.shape[0])]

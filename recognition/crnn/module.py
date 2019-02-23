@@ -12,6 +12,15 @@ from os.path import join
 
 THIS_DIR_PATH = "recognition/crnn"
 
+def batch_resize(batch, height):
+    percent = float(height) / batch.shape[1]
+    a = cv2.resize(batch[0], (0,0), fx=percent, fy=percent, interpolation=cv2.INTER_CUBIC)
+    out = np.zeros((8, a.shape[0], a.shape[1], a.shape[2]))
+    out[0] = a
+    for i in range(1, 8):
+        out[i] = cv2.resize(batch[i], (0,0), fx=percent, fy=percent, interpolation=cv2.INTER_CUBIC)
+    return out
+
 
 class CRNNRecognition(RecognitionModule):
 
@@ -62,21 +71,24 @@ class CRNNRecognition(RecognitionModule):
         return pred_str
 
     def batch_run(self, input_batch):
-        imgs = torch.from_numpy(input_batch.astype(np.int32)).type(self.dtype)
+        if input_batch.shape[1] != self.config['network']['input_height']:
+            input_batch = batch_resize(input_batch, self.config['network']['input_height'])
+        input_batch = input_batch.transpose([0,3,1,2])
+        imgs = input_batch.astype(np.float32) / 128 - 1
+        imgs = torch.from_numpy(imgs).type(self.dtype)
         line_imgs = Variable(imgs, requires_grad=False, volatile=True)
         try:
-            preds = self.network(img)
+            preds = self.network(line_imgs)
         except Exception as e:
-            print("AAAAH???")
-            return []
+            print(e)
+            return ['UNREADABLE' for i in range(8)]
         output_batch = preds.permute(1, 0, 2)
         out = output_batch.data.cpu().numpy()
 
         retval = []
         for i in range(out.shape[0]):
             logits = out[i, ...]
-            pred, predPraw = string_utils.naive_decode(logits)
+            pred, pred_raw = string_utils.naive_decode(logits)
             pred_str = string_utils.label2str(pred, self.idx_to_char, False)
-            print(pred_str)
             retval.append(pred_str)
         return retval

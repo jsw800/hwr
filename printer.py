@@ -21,5 +21,15 @@ class Printer(object):
         self.file.write('\n')
         self.file.flush()
 
+    def write_batch(self, uniq_ids, lines):
+        for i in range(8):
+            self.file.write(uniq_ids[i] + '\t')
+            for j, field in enumerate(self.fields):
+                self.file.write(lines[field][i])
+                if j != len(self.fields) - 1:
+                    self.file.write('\t')
+            self.file.write('\n')
+        self.file.flush()
+
     def close(self):
         self.file.close()

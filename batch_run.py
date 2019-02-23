@@ -22,22 +22,18 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
     count = 0
     line_number = 1
 
-    for batch in dataloader:
-        # log how many images we've read... this may not be very robust. It's not really important
-        # though, it's just logging.
-        if prev_img_name is None or prev_img_name not in batch['img_names']:
-            prev_img_name = batch['img_names'][0]
+    for i, batch in enumerate(dataloader):
+        img_names = batch['img_names']
+        if prev_img_name is None:
+            prev_img_name = img_names[0]
             line_number = 1
-            count += 1
-            print(count)
-        img_name = batch['img_names']
         images = batch['fields']
         line_output = {}
 
         # warn possible segmentation errors, but don't auto fail, just warn
         if len(images) != len(modules):
-            sys.stderr.write("number of fields != expected number of fields for images " + img_name +
-                                                                    "line # " + str(line_number) + "\n")
+            sys.stderr.write("number of fields != expected number of fields for images " +
+                        img_name + "line # " + str(line_number) + "\n")
 
         # Read each field on this line into line_output
         for i in range(min(len(images), len(modules))):
@@ -45,20 +41,31 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
             image = images[i]
             rectified_img = module['preprocessing'].batch_preprocess(image)
             pred = module['recognition'].batch_run(rectified_img)
-            #print(pred)
             corrected_pred = module['postprocessing'].batch_postprocess(pred)
             line_output[module['field_name']] = corrected_pred
 
-        # output this line's labels
-        line_print = str(line_number)
-        line_print = line_print if len(line_print) == 2 else '0' + line_print
-        line_id = img_name.split('/')[-1].split('.')[0] + '_' + line_print
-        printer.write_line(line_id, line_output)
+        # output this batch's labels
+        line_ids = []
+        for i, img_nm in enumerate(img_names):
+            if img_nm != prev_img_name:
+                print(prev_img_name)
+                print(img_nm)
+                prev_img_name = img_nm
+                line_number = 1
+                count += 1
+                # log number of pages read
+                print(count)
+            lnnm = str(line_number)
+            lnnm = lnnm if len(lnnm) == 2 else '0' + lnnm
+            idnt = img_nm.split('/')[-1].split('.')[0] + '_' + lnnm
+            line_ids.append(idnt)
+            line_number += 1
+        printer.write_batch(line_ids, line_output)
         line_number += 1
 
     printer.close()
 
 
 if __name__ == '__main__':
-    run('configs/config.yaml', 'data/images/004949552', 'data/segmentation/004949552.csv',
-                    'output/004949552.csv')
+    run('configs/config.yaml', 'data/images/004953237', 'data/segmentation/004953237.csv',
+                    'output/004953237.csv')
