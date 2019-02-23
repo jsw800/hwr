@@ -29,7 +29,7 @@
 
 - field_name: name
   pretty_field_name: "Name"
-  preprocessing: none
+  preprocessing: histogram
   method: crnn
   postprocessing: none #surnamecorrection
   preprocessing_args: []

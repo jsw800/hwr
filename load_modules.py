@@ -8,11 +8,13 @@ from postprocessing.surnamecorrection import SurnameCorrection
 from postprocessing.farmcorrection import FarmCorrection
 from postprocessing.racecorrection import RaceCorrection
 from preprocessing.none import NonePreprocessModule
+from preprocessing.histogram import HistogramEqualization
 
 # REGISTER MODULE NAMES HERE, add new modules here when you want to use them
 
 PREPROCESS_MODULE_NAMES = {
-    'none': NonePreprocessModule
+    'none': NonePreprocessModule,
+    'histogram': HistogramEqualization
 }
 
 RECOGNITION_MODULE_NAMES = {
