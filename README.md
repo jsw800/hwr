@@ -6,6 +6,9 @@ Given a yaml config path, image root directory, segmentation path for that image
 this script will load the specified recognition and postprocessing modules for each field in the yaml config file.
 It will then use the provided segmentation data to read the images and output the labels to the specified output file.
 
+`batch_run.py`:
+Same as run.py, but uses batching to speed up the process. Use `batch_run.py` rather than `run.py`.
+
 `load_modules.py`:
 Responsible for loading recognition and postprocessing modules given the yaml config path.
 Also, when a new recognition module or postprocessing module is implemented, it should be

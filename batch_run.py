@@ -49,8 +49,6 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
         line_ids = []
         for i, img_nm in enumerate(img_names):
             if img_nm != prev_img_name:
-                print(prev_img_name)
-                print(img_nm)
                 prev_img_name = img_nm
                 line_number = 1
                 count += 1
@@ -67,5 +65,5 @@ def run(modules_config, image_folder, segmentation_path, output_filename):
 
 
 if __name__ == '__main__':
-    run('configs/none_config.yaml', 'data/images/004953237', 'data/segmentation/004953237.csv',
+    run('configs/config.yaml', 'data/images/004953237', 'data/segmentation/004953237.csv',
                     'output/004953237.csv')
