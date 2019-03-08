@@ -12,8 +12,9 @@ class HistogramEqualization(PreprocessModule):
     def preprocess(self, input_image):
         clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(2, 2))
         out = np.zeros_like(input_image)
-        for i in range(3):
-            out[:, :, i] = clahe.apply(input_image[:, :, i])
+        for i in range(input_image.shape[2]):
+            a = input_image[:, :, i].astype(np.uint8)
+            out[:, :, i] = clahe.apply(a)
 
         return out
 
