@@ -16,7 +16,7 @@ import grid_distortion
 class HwDataset(Dataset):
     def __init__(self, csv_path, char_to_idx, img_height=32, root_path=".", augmentation=False):
         with open(csv_path) as f:
-            data = [row.split('\t') for row in f.read().split('\n') if row != ''][1:]
+            data = [row.split('\t') for row in f.read().split('\n') if row != '']
 
         self.root_path = root_path
         self.img_height = img_height
@@ -36,11 +36,12 @@ class HwDataset(Dataset):
             self.cur_img_name = item[0]
             self.cur_img = cv2.imread(os.path.join(self.root_path, item[0] + '.jpg'))
 
+        # get coords for cropping
         coords = [int(coord) for coord in item[2:6]]
         img = self.cur_img[coords[2]:coords[3], coords[0]:coords[1]]
         gt = item[1]
 
-        if img is None:
+        if img is None or img.shape[0] == 0:
             print("Warning: image is None:", os.path.join(self.root_path, item[0]))
             return None
 

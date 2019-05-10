@@ -49,10 +49,10 @@ def collate(batch):
     }
 
 class HwDataset(Dataset):
-    def __init__(self, data, img_height=32, augmentation=False):
-
-        self.data = data
-        self.img_height = img_height
+    def __init__(self, data, img_height=32, augmentation=False):        #So what else does this class need to be able to do?
+                                                                        #I remember there was a thing about changing what you pass in for 'data'
+        self.data = data                                                #Also, cutting out a section of the image (the part that you need)
+        self.img_height = img_height                                    #So maybe those two go together. 
         self.augmentation = augmentation
 
     def __len__(self):
@@ -67,7 +67,7 @@ class HwDataset(Dataset):
             print("Warning: image is None:", item['im'])
             return None
 
-        img = cv2.resize(img, (self.img_height, self.img_height), interpolation=cv2.INTER_CUBIC)
+        img = cv2.resize(img, (self.img_height, self.img_height), interpolation=cv2.INTER_CUBIC)        #Why are we resizing the image again?
 
         # image augmentation (this basically distorts the image so we can have more training data
         # without hand-generating it)

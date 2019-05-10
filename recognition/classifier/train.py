@@ -17,9 +17,13 @@ def main():
 
     with open(config_path) as f:
         config = json.load(f)
-
+#Replace next line with initializing the dataset object for both training and validation. Create two HWDataset class objects ...
+    #Beginning edits of this code.
     train_dataset, test_dataset = datasets.get_training_and_validation_datasets(config['image_root_directory'])
-    
+    train_dataset = HwDataset(config['image_root_directory'])#This doesn't work yet as is--I think it needs to be passed something else
+    test_dataset = HwDataset(config)#
+
+
     train_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=True, num_workers=0, collate_fn=hw_dataset.collate)
     
     test_dataloader = DataLoader(test_dataset, batch_size=8, shuffle=False, num_workers=0, collate_fn=hw_dataset.collate)
